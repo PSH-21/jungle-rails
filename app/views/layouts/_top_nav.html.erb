@@ -32,6 +32,9 @@
             <a>Signed in: <%= current_user.first_name %> <%= current_user.last_name %></a>
           <% else %>
               <%= link_to 'Signup', '/signup' %>
+        </li>
+        <li>
+              <%= link_to 'Login', '/login' %>
           <% end %>
        </li>
        <li class="dropdown">
@@ -45,7 +48,7 @@
             <li><%= link_to 'Products',  [:admin, :products] %></li>
             <li><%= link_to 'Categories',  [:admin, :categories] %></li>
             <% if current_user %>
-            <li><%= link_to 'Login', '/login' %> </li>
+            <li><%= link_to "Logout", '/logout' %> </li>
             <% end %>
           </ul>
         </li>
