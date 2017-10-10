@@ -1,0 +1,14 @@
+<h1>Thanks for Shopping at Jungle! Order:<%= @order.id %></h1>
+<p>
+  Here is a copy of your order:
+</p>
+<p>
+    Product | Unit | Price | Quantity | Subtotal
+    <% @order.line_items.each do |line_item| %>
+
+    <%= line_item.product.name %>, $<%= line_item.item_price_cents/100 %>, x<%= line_item.quantity %>, $<%= line_item.total_price_cents/100 %>
+    <% end %>
+
+    Total: $<%= @order.total_cents/100 %>
+</p>
+<p>Thanks for shopping with us and have a great day!</p>
