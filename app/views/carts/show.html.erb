@@ -1,3 +1,4 @@
+<% if cart.size > 0 %>
 <section class="cart-show">
 
   <header class="page-header">
@@ -51,3 +52,9 @@
   </div>
 
 </section>
+
+<% else %>
+
+<%= render 'empty_cart' %>
+
+<% end %>
