@@ -27,27 +27,27 @@
     </div>
 
     <div class="row">
-      <h3>Reviews</h3>
-      <% if @product.reviews.count === 0 %>
+      <h3>Reviews </h3>
+      <% if !@reviews.exists? %>
             <h3> Be the first to review! </h3>
       <% else %>
-      <h5> Rating |  Review</h5>
-        <% @product.reviews.order("created_at DESC").each do | review | %>
-          <div><b><%=review.rating%>/5</b> |  <i><%=review.description %></i>
-          <%# if current_user.id == @review.user_id %>
-                <%= button_to "Delete", product_review_path(@product, review), data: {confirm: 'Are you sure?'}, method: :delete, class: "delete-review" %>
-          <%# end %>
-        </div>
+        <h5> Overall Rating: <%= @reviews.average(:rating) %> </h5>
+        <h5> Rating |  Review</h5>
+        <% @reviews.order("created_at DESC").each do | review | %>
+          <div class="single-review"><b><%=review.rating%>/5</b> |  <i><%=review.description %></i>
+            <% if current_user.try(:id) == review.user_id %>
+              <%= button_to "Delete", product_review_path(@product, review), data: {confirm: 'Are you sure?'}, method: :delete, class: "delete-review" %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
       <% if current_user %>
-       <%= form_for [@product, @review] do |f| %>
-        <%= f.text_field :description %>
-        <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
-
-        <%= f.submit 'Add Review', class: 'btn btn-primary'%>
+        <%= form_for [@product, @review] do |f| %>
+          <%= f.text_field :description %>
+          <%= f.select :rating, options_for_select([1,2,3,4,5]) %>
+          <%= f.submit 'Add Review', class: 'btn btn-primary'%>
+        <% end %>
       <% end %>
-    <% end %>
     </div>
 
   </article>

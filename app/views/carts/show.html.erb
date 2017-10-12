@@ -44,11 +44,7 @@
           data-name="Jungle"
           data-description="Peter Hunt's Jungle Order"
           data-locale="auto"
-          <% if current_user %>
-
-          <% else %>
-            token.email
-          <% end %>
+          data-email="<%= current_user ? current_user.email : '' %>"
           data-currency="cad">
         </script>
       <% end %>
