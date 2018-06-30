@@ -3,8 +3,8 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 !['Screenshot of home page'](https://github.com/PSH-21/jungle-rails/blob/master/app/assets/images/home-page.png)
-[!'Screenshot of example product page'](https://github.com/PSH-21/jungle-rails/blob/master/app/assets/images/example-product.png)
-[!'Screenshot of example order summary'](https://github.com/PSH-21/jungle-rails/blob/master/app/assets/images/sample-order.png)
+!['Screenshot of example product page'](https://github.com/PSH-21/jungle-rails/blob/master/app/assets/images/example-product.png)
+!['Screenshot of example order summary'](https://github.com/PSH-21/jungle-rails/blob/master/app/assets/images/sample-order.png)
 
 ## Setup
 
